@@ -37,7 +37,7 @@ const queue = new Map();
  
  
  
-var prefix = "1play" //البرفكس
+var prefix = "1" //البرفكس
 client.on('message', async msg => {
     if (msg.author.bot) return undefined;
    
