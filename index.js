@@ -251,7 +251,7 @@ ${prefix}queue ⇏ لمعرفة قآئمة التشغيل
  
  
 
-const devs = ['الايدي تبعك' , '' , '' , ''];
+const devs = ['482335925867642881' , '' , '' , ''];
 const adminprefix = "-";
 client.on('message', message => {
     var argresult = message.content.split(` `).slice(1).join(' ');
