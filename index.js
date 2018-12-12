@@ -279,4 +279,4 @@ client.on('message', message => {
 
 
 
-client.login("NTEwMzcyNjI1MTE0MjAyMTEy.DsbaNw.55EyambY_zjiZCtu1GN8kGiE9OE");
+client.login("process.env.TOKEN");
