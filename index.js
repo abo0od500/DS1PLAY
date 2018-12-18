@@ -30,6 +30,17 @@ client.on('guildMemberAdd', member => {
 //                           }
 // });
 
+// instant Invite
+client.on('message', message => {
+    var prefix = "";
+if(!message.channel.guild) return;
+if(message.content.startsWith(prefix + 'رابط')) {
+channel.createInvite()
+  .then(invite => message.reply(`Created an invite with a code of ${invite.code}`))
+  .catch(console.error);
+}
+});
+
 
 
 
