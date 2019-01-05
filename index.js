@@ -5,7 +5,7 @@ const client = new Discord.Client();
 
 // منح رتبه ثابته
 client.on('guildMemberAdd', member => { 
-    let myRole = member.guild.roles.find(role => role.name === "HL");
+    let myRole = member.guild.roles.find(role => role.name === "Wiz");
     member.addRole(myRole).catch(console.error);});
 
 
