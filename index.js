@@ -12,7 +12,7 @@ client.on('guildMemberAdd', member => {
 
 //  مسح الشات
 client.on("message", message => { 
-    var prefix = "#"; // غير هنا حط البرفكس
+    var prefix = ""; // غير هنا حط البرفكس
             var args = message.content.substring(prefix.length).split(" ");
             if (message.content.startsWith(prefix + "مسح")) {
    if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply('⚠ | **ليس لديك صلاحيات**');
