@@ -32,11 +32,16 @@ client.on("message", message => {
 
 // instant Invite
 client.on('message', message => {
-    var prefix = "";
-if(!message.channel.guild) return;
-if(message.content.startsWith(prefix + 'رابط')) {
-channel.createInvite()
-  .then(invite => message.reply(`Created an invite with a code of ${invite.code}`))
+if(message.content.startsWith('رابط')) {
+	
+var options = {
+unique: true,
+maxAge: 86400,
+maxUses: 2
+};
+	
+message.channel.createInvite(options)
+  .then(invite => message.channel.send(invite.url))
   .catch(console.error);
 }
 });
