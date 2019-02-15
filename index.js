@@ -16,6 +16,23 @@ client.on('guildMemberAdd', member => {
 
 });
 
+// Test Welcomer msg
+
+client.on("message", message => { 
+if (message.content.startsWith("->welc")) {
+Jimp.read('./6c9d2911a10bb05d4c5932b7299bae36.png', (err, image) => {
+  
+    if (err) throw err;
+    Jimp.loadFont(Jimp.FONT_SANS_32_BLACK).then(function(font) {
+    image.print(font, 10, 10, message.author.username );
+    image.write('./testestesttest.png');
+    });
+    });
+	
+	
+}
+});
+
 
 
 //  مسح الشات
