@@ -1,5 +1,6 @@
 
 const Discord = require('discord.js');
+var Jimp = require('jimp');
 const client = new Discord.Client();
 let mainChat = process.env.mainChat;
 // رتبة ثابته
