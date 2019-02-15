@@ -29,7 +29,7 @@ Jimp.read('./6c9d2911a10bb05d4c5932b7299bae36.png', (err, image) => {
     image.write('./testestesttest.png');
     });
     });
-	
+console.log('wel');
 	
 }
 });
