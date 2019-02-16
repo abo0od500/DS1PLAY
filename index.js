@@ -3,17 +3,14 @@ const Discord = require('discord.js');
 var Jimp = require('jimp');
 const client = new Discord.Client();
 let mainChat = process.env.mainChat;
-// رتبة ثابته
+
+//add Role and Welcomer
+
 client.on('guildMemberAdd', member => { 
-	
+
 	let myRole = member.guild.roles.find(role => role.name === "Wiz");
 	member.addRole(myRole).catch(console.error);
-	
-	client.channels.get(process.env.mainChat).send(`Welcome to Wiz Server...`);
-	
-
-
-
+	client.channels.get(process.env.mainChat).send(`Welcome to Wiz Server -> ` + member.user.username);
 
 });
 
