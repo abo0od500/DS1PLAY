@@ -14,7 +14,69 @@ client.on('guildMemberAdd', member => {
 
 });
 
+// انشاء رول خاص بالمستخدم او اعطاء رول من الادارة
 
+client.on('message', message => {
+  
+  var prefix = "#";
+  if(message.content.startsWith(prefix + 'role')) {
+  var targetUser = message.mentions.members.first();
+  if(!targetUser){
+            var targetRole = message.content.slice(6);
+            var findRole = message.guild.roles.find(r => r.name === `${targetRole}`);
+            var botRole =  message.guild.roles.find(r => r.name === "Bot");
+            if(!findRole) {
+              message.guild.createRole({
+                  name: `${targetRole}`,
+                  color: 'DEFAULT',
+                  hoist: false,
+                  permissions: [],
+                  position: 0
+              })
+              .then(role => message.member.addRole(role.id))
+              .catch(console.error);
+              message.reply(`Role ${targetRole} created successfully and gave to You ....`).then(msg => msg.delete(3000)); 
+            } else {
+                var x = botRole.comparePositionTo(findRole);
+                if( x <= 0){
+                  message.reply("You do not have permission").then(msg => msg.delete(3000));
+                } else {
+                  message.member.addRole(findRole.id);
+                  message.reply("Done").then(msg => msg.delete(3000));
+                }
+              }
+  } else{
+    
+          if(!message.member.hasPermission("MANAGE_ROLES")) return message.reply("ليس لديك الصلاحية").then(msg => msg.delete(3000));
+
+          var messageLen = stringLength(`#role ${targetUser} `);
+          var targetRole = message.content.slice(messageLen);
+          var findRole = message.guild.roles.find(r => r.name === `${targetRole}`);
+          var botRole =  message.guild.roles.find(r => r.name === "Bot");
+          if(!findRole) {
+            message.guild.createRole({
+                name: `${targetRole}`,
+                color: 'DEFAULT',
+                hoist: false,
+                permissions: [],
+                position: 0
+            })
+            .then(role => targetUser.addRole(role.id))
+            .catch(console.error);
+            message.reply(`Role ${targetRole} created successfully and gave to <@${targetUser.id}> ....`).then(msg => msg.delete(3000));
+            
+          } else {
+              var x = botRole.comparePositionTo(findRole);
+              if( x <= 0){
+                message.reply("You do not have permission").then(msg => msg.delete(3000));
+              } else {
+                targetUser.addRole(findRole.id);
+                message.reply("Done").then(msg => msg.delete(3000));
+              }
+        
+            }
+  }
+  }});
 
 
 
@@ -91,6 +153,4 @@ message.react("❌")
  }}});
 
 
-
- 
 client.login(process.env.TOKEN);
