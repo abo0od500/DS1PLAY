@@ -2,6 +2,10 @@
 const Discord = require('discord.js');
 var Jimp = require('jimp');
 const client = new Discord.Client();
+var request = require('request');
+var stringLength = require("string-length");
+var fs = require("fs");
+
 let mainChat = process.env.mainChat;
 
 //add Role and Welcomer
