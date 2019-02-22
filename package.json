@@ -1,7 +1,7 @@
 {
-  "name": "Abdullah",
+  "name": "admin",
   "version": "1.0.0",
-  "description": "music Commands",
+  "description": "Admin Commands",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -9,15 +9,13 @@
   "author": "Abdullah",
   "license": "ISC",
   "dependencies": {
+    "add-text-to-image": "^1.0.1",
     "discord.js": "^11.4.2",
+    "gm": "^1.23.1",
     "jimp": "^0.4.0",
     "request": "^2.88.0",
     "string-length": "^2.0.0",
-    "get-youtube-id": "^1.0.0",
-    "simple-youtube-api": "^5.1.1",
-    "ytdl-core": "^0.28.1",
-    "youtube-info": "^1.3.2",
-    "discord.js-arbitrary-ffmpeg": "^1.0.0",
-    "ffmpeg": "0.0.4"
+    "string_decoder": "^1.2.0",
+    "text2png": "^2.1.0"
   }
 }
