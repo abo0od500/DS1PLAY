@@ -12,9 +12,51 @@ let mainChat = process.env.mainChat;
 
 client.on('guildMemberAdd', member => { 
 
-	let myRole = member.guild.roles.find(role => role.name === "Wiz");
-	member.addRole(myRole).catch(console.error);
-	client.channels.get(process.env.mainChat).send(`Welcome to Wiz Server -> ` + member.user.username);
+		let myRole = member.guild.roles.find(role => role.name === "Wiz");
+  member.addRole(myRole).catch(console.error);
+	// client.channels.get(process.env.mainChat).send(`Welcome to Wiz Server -> ` + member.user.username);
+    var MASG1 = {username: member.user.username, avatarURL: member.user.avatarURL, createdAT: member.user.createdAt, mem: member.guild.memberCount};
+    request({
+        method: 'POST',         
+        har: {
+          url: 'http://aspire-click.com/discordbot1/welcomerbot/index.php',
+          method: 'POST',
+          headers: [
+            {
+              name: 'content-type',
+              value: 'application/x-www-form-urlencoded'
+            }
+          ],
+          postData: {
+            mimeType: 'application/x-www-form-urlencoded',
+            params: [
+                {
+                    name: 'username',
+                    value: MASG1.username
+                },
+                {
+                    name: 'avatarurl',
+                    value: MASG1.avatarURL
+                },
+                {
+                    name: 'created',
+                    value: MASG1.createdAT
+                },
+                {
+                    name: 'member',
+                    value: MASG1.mem
+                }
+            ]
+          }
+        }
+      }, function (error, response, body) {
+        var res = JSON.parse(body);
+        console.log(res.filename);
+        client.channels.get(mainChat).send({
+            files: [
+              `${res.filename}`
+            ]
+          });
 
 });
 
