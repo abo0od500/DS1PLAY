@@ -15,7 +15,7 @@ client.on('guildMemberAdd', member => {
 		let myRole = member.guild.roles.find(role => role.name === "Wiz");
   member.addRole(myRole).catch(console.error);
 	// client.channels.get(process.env.mainChat).send(`Welcome to Wiz Server -> ` + member.user.username);
-    var MASG1 = {username: member.user.username, avatarURL: member.user.avatarURL, createdAT: member.user.createdAt, mem: member.guild.memberCount};
+    var MASG1 = {username: member.user.username, avatarURL: member.user.avatarURL, createdAT: member.user.createdAt, id: member.user.id};
     request({
         method: 'POST',         
         har: {
@@ -43,8 +43,8 @@ client.on('guildMemberAdd', member => {
                     value: MASG1.createdAT
                 },
                 {
-                    name: 'member',
-                    value: MASG1.mem
+                    name: 'id',
+                    value: MASG1.id
                 }
             ]
           }
