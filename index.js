@@ -58,7 +58,7 @@ client.on('guildMemberAdd', member => {
 		      `${res.filename}`
 		    ]
 		  });
-	    }, 5000); 
+	    }, 3000); 
 
 });
 });
