@@ -51,12 +51,14 @@ client.on('guildMemberAdd', member => {
         }
       }, function (error, response, body) {
         var res = JSON.parse(body);
-        console.log(res.filename);
-        client.channels.get(mainChat).send({
-            files: [
-              `${res.filename}`
-            ]
-          });
+//         console.log(res.filename);
+	setTimeout(() => { 
+		client.channels.get(mainChat).send({
+		    files: [
+		      `${res.filename}`
+		    ]
+		  });
+	    }, 5000); 
 
 });
 });
