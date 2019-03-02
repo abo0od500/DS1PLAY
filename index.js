@@ -7,7 +7,6 @@ var stringLength = require("string-length");
 var fs = require("fs");
 
 let mainChat = process.env.mainChat;
-var inviter = JSON.parse(fs.readFileSync('includes/inviter.json', 'utf8')); // Invite link -> get how create this link
 //add Role and Welcomer
 
 client.on('guildMemberAdd', member => { 
@@ -158,7 +157,7 @@ client.on('message', message => {
     maxUses: 2
     };
     message.channel.createInvite(options)
-      .then(invite => message.channel.send(invite.url) ; inviter[invite.code] =  { userID: message.author.id }; fs.writeFile('includes/inviter.json', JSON.stringify(inviter), (err) => { if(err) console.error(err)}))
+      .then(invite => message.channel.send(invite.url))
       .catch(console.error)
       
     }
