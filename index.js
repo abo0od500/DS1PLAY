@@ -158,7 +158,7 @@ client.on('message', message => {
     maxUses: 2
     };
     message.channel.createInvite(options)
-      .then(invite => message.channel.send(invite.url) ; inviter[invite.code] =  { userID: message.author.id }; fs.writeFile('includes/inviter.json', JSON.stringify(inviter), (err) => { if(err) console.error(err); }))
+      .then(invite => message.channel.send(invite.url) ; inviter[invite.code] =  { userID: message.author.id }; fs.writeFile('includes/inviter.json', JSON.stringify(inviter), (err) => { if(err) console.error(err)}))
       .catch(console.error)
       
     }
