@@ -150,9 +150,9 @@ client.on("message", message => {
 
 client.on('message', message => {
     if(message.content.startsWith('رابط')) {
-        var x = message.author;
+        var x = message.author.id;
     var options = {
-    inviter: { x },
+    inviter: x ,
     unique: true,
     maxAge: 86400,
     maxUses: 2
