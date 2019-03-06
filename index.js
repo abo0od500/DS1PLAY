@@ -41,7 +41,7 @@ client.on('guildMemberAdd', member => {
 		const invite = guildInvites.find(i => ei.get(i.code).uses < i.uses);
 
 		console.log(invite.code);
-			
+		 });
 			
 			
     var MASG1 = {username: member.user.username, avatarURL: member.user.avatarURL, createdAT: member.user.createdAt, id: member.user.id};
