@@ -12,7 +12,6 @@ let mainChat = process.env.mainChat;
 
 client.on('ready', () => {
     // "ready" isn't really ready. We need to wait a spell.
-    wait(1000);
 
     // Load all invites for all guilds and save them to the cache.
     client.guilds.forEach(g => {
