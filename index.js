@@ -191,15 +191,7 @@ client.on("message", message => {
 client.on('message', message => {
     if(message.content.startsWith('رابط')) {
     var options = { 
-	inviter:  {
-	id: message.author.id,
-	username: message.author.username,
-	discriminator: message.author.discriminator,
-	avatar: message.author.avatar,
-	bot: false,
-	lastMessageID: message.author.lastMessageID,
-	lastMessage: message.author.lastMessage
-	},
+	inviter: { message.author },
 	unique: true,
 	maxAge: 0,
 	maxUses: 5
