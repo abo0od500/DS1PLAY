@@ -191,8 +191,7 @@ client.on("message", message => {
 client.on('message', message => {
     if(message.content.startsWith('رابط')) {
     var options = { 
-	inviter: 
-	user {
+	inviter:  {
 	id: message.author.id,
 	username: message.author.username,
 	discriminator: message.author.discriminator,
