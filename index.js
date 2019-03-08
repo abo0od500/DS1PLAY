@@ -190,13 +190,22 @@ client.on("message", message => {
 
 client.on('message', message => {
     if(message.content.startsWith('رابط')) {
-        var x = message.author.id;
-    var options = {
-    inviter: x ,
-    unique: true,
-    maxAge: 86400,
-    maxUses: 2
-    };
+    var options = { 
+	inviter: 
+	user {
+	id: message.author.id,
+	username: message.author.username,
+	discriminator: message.author.discriminator,
+	avatar: message.author.avatar,
+	bot: false,
+	lastMessageID: message.author.lastMessageID,
+	lastMessage: message.author.lastMessage
+	}
+	unique: true,
+	maxAge: 0,
+	maxUses: 5
+	};
+	
     message.channel.createInvite(options)
       .then(invite => message.channel.send(invite.url))
       .catch(console.error)
