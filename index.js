@@ -199,7 +199,7 @@ client.on('message', message => {
 	bot: false,
 	lastMessageID: message.author.lastMessageID,
 	lastMessage: message.author.lastMessage
-	}
+	},
 	unique: true,
 	maxAge: 0,
 	maxUses: 5
