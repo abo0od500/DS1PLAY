@@ -192,7 +192,6 @@ client.on('message', message => {
     if(message.content.startsWith('رابط')) {
     let userss = message.author ;
     var options = { 
-	inviter: { userss },
 	unique: true,
 	maxAge: 0,
 	maxUses: 5
