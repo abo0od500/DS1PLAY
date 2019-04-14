@@ -1,10 +1,12 @@
 
 const Discord = require('discord.js');
 var Jimp = require('jimp');
-const client = new Discord.Client();
 var request = require('request');
+var Table = require('table-layout');
 var stringLength = require("string-length");
+
 var fs = require("fs");
+const client = new Discord.Client();
 
 let mainChat = process.env.mainChat;
 //add Role and Welcomer
@@ -239,6 +241,42 @@ message.channel.send("``لا تستطيع سحب يجب ان يكون هذه ا�
 } else {
 message.react("❌")
  }}});
+
+// AUTHAN CODE
+
+client.on("message", message => {
+  if(message.content.startsWith("الاذان ")){
+
+request({
+  method: 'POST',         
+  har: {
+    url: 'https://wizdiscordbots.000webhostapp.com/DISCORDBOT/index.php/Authan',
+    method: 'POST',
+    headers: [
+      {
+        name: 'content-type',
+        value: 'application/x-www-form-urlencoded'
+      }
+    ],
+    postData: {
+      mimeType: 'application/x-www-form-urlencoded',
+      params: []
+    }
+  }
+}, function (error, response, body) {
+  var res = JSON.parse(body);
+
+  table = new Table(res.times);
+
+  message.channel.send(
+    "***" + res.aumalqora + "***" +
+    "```" + table.toString() + " ```");
+
+});
+
+  }
+});
+
 
 
 client.login(process.env.TOKEN);
