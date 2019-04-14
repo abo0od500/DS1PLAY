@@ -245,7 +245,7 @@ message.react("❌")
 // AUTHAN CODE
 
 client.on("message", message => {
-  if(message.content.startsWith("الاذان ")){
+  if(message.content.startsWith("-athan")){
 
 request({
   method: 'POST',         
