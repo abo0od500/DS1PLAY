@@ -177,7 +177,7 @@ client.on("message", message => {
     var prefix = ""; // غير هنا حط البرفكس
             var args = message.content.substring(prefix.length).split(" ");
             if (message.content.startsWith(prefix + "مسح")) {
-	if (msg.channel.id != botChat) return console.log('not in the bot chat');
+	if (message.channel.id != botChat) return console.log('not in the bot chat');
 
    if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply('⚠ | **ليس لديك صلاحيات**');
         var msg;
