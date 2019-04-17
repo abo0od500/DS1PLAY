@@ -9,6 +9,8 @@ var fs = require("fs");
 const client = new Discord.Client();
 
 let mainChat = process.env.mainChat;
+let botChat = process.env.botChat;
+
 //add Role and Welcomer
 
 
@@ -170,25 +172,27 @@ client.on('message', message => {
 
 
 
-// //  مسح الشات
-// client.on("message", message => { 
-//     var prefix = ""; // غير هنا حط البرفكس
-//             var args = message.content.substring(prefix.length).split(" ");
-//             if (message.content.startsWith(prefix + "مسح")) {
-//    if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply('⚠ | **ليس لديك صلاحيات**');
-//         var msg;
-//         msg = parseInt();
-//       message.channel.fetchMessages({limit: msg}).then(messages => message.channel.bulkDelete(messages)).catch(console.error);
-//       message.channel.sendMessage("", {embed: {
-//         title: "Done | تــم",
-//         color: 0x06DF00,
-//         description: "تم مسح الرسائل بنجاح",
-//         footer: {
-//           text: "Assistant" // غير هنا حط اسم البوت
-//         }
-//       }}).then(msg => {msg.delete(3000)});
-//                           }
-// });
+//  مسح الشات
+client.on("message", message => { 
+    var prefix = ""; // غير هنا حط البرفكس
+            var args = message.content.substring(prefix.length).split(" ");
+            if (message.content.startsWith(prefix + "مسح")) {
+	if (msg.channel.id != botChat) return console.log('not in the bot chat');
+
+   if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply('⚠ | **ليس لديك صلاحيات**');
+        var msg;
+        msg = parseInt();
+      message.channel.fetchMessages({limit: msg}).then(messages => message.channel.bulkDelete(messages)).catch(console.error);
+      message.channel.sendMessage("", {embed: {
+        title: "Done | تــم",
+        color: 0x06DF00,
+        description: "تم مسح الرسائل بنجاح",
+        footer: {
+          text: "Assistant" // غير هنا حط اسم البوت
+        }
+      }}).then(msg => {msg.delete(3000)});
+                          }
+});
 
 client.on('message', message => {
     if(message.content.startsWith('رابط')) {
