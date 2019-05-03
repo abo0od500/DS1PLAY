@@ -310,7 +310,7 @@ request({
     `${res.filename}`
   ]
 });
-
+});
   
 });
 
