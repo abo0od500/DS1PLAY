@@ -307,11 +307,12 @@ request({
 
   message.channel.send("", {
   files: [
-    `${res.filename}`
+    `${res.filename}`,
   ]
 });
 
-  }
+  })
+}
 });
 
 
