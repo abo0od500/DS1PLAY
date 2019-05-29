@@ -174,7 +174,7 @@ client.on('message', message => {
 
 //  مسح الشات
 client.on("message", message => { 
-    var prefix = ""; // غير هنا حط البرفكس
+    var prefix = "#"; // غير هنا حط البرفكس
             var args = message.content.substring(prefix.length).split(" ");
             if (message.content.startsWith(prefix + "مسح")) {
 // 	if (message.channel.id != botChat) return console.log('not in the bot chat');
