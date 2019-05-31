@@ -282,39 +282,6 @@ request({
   }
 });
 
-// New Update
-client.on("message", message => {
-  if(message.content.startsWith("اذان")){
-
-request({
-  method: 'POST',         
-  har: {
-    url: 'https://wizdiscordbots.000webhostapp.com/DISCORDBOT/index.php/Authan/newcalender',
-    method: 'POST',
-    headers: [
-      {
-        name: 'content-type',
-        value: 'application/x-www-form-urlencoded'
-      }
-    ],
-    postData: {
-      mimeType: 'application/x-www-form-urlencoded',
-      params: []
-    }
-  }
-}, function (error, response, body) {
-  var res = JSON.parse(body);
-
-
-  message.channel.send("", {
-  files: [
-    `${res.filename}`,
-  ]
-});
-
-  })
-}
-});
 
 
 client.login(process.env.TOKEN);
