@@ -182,12 +182,18 @@ client.on("message", message => {
 
    if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply('⚠ | **ليس لديك صلاحيات**');
         var msg;
-        msg = parseInt();
+//         msg = parseInt();
+	
+	if (args[1] == "" ) { 
+		msg = parseInt(); 
+	} else {
+		msg = args[1];
+	}
       message.channel.fetchMessages({limit: msg}).then(messages => message.channel.bulkDelete(messages)).catch(console.error);
       message.channel.sendMessage("", {embed: {
         title: "Done | تــم",
         color: 0x06DF00,
-        description: "تم مسح الرسائل بنجاح",
+        description: "تم مسح الرسائل بنجاح" + msg ,
         footer: {
           text: "Assistant" // غير هنا حط اسم البوت
         }
