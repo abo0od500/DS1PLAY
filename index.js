@@ -184,7 +184,7 @@ client.on("message", message => {
         var msg;
 //         msg = parseInt();
 	if(args[1] == "" ) {
-		msg = 1;	
+		msg = 10;	
 	} else {
 		msg = parseInt(args[1]);
 	}
