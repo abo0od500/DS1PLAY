@@ -183,12 +183,9 @@ client.on("message", message => {
    if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply('⚠ | **ليس لديك صلاحيات**');
         var msg;
 //         msg = parseInt();
-	
-	if (args[1] == "" ) { 
-		msg = parseInt(); 
-	} else {
-		msg = args[1];
-	}
+
+		msg = parseInt(args[1]); 
+
       message.channel.fetchMessages({limit: msg}).then(messages => message.channel.bulkDelete(messages)).catch(console.error);
       message.channel.sendMessage("", {embed: {
         title: "Done | تــم",
